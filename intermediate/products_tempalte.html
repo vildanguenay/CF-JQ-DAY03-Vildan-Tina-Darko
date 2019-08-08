@@ -10,6 +10,13 @@
 </head>
 
 <body>
+
+		<select id="sorting">
+			<option value="all">Sort</option>
+			<option value="laptops">Laptops</option>
+			<option value="tablets">Tablets</option>
+			<option value="phones">Phones</option>
+		</select>
 	<div class="container">
 		<div class="col-xs-12 col-md-6" title="laptop">
 			<!-- First product box start here-->
@@ -322,30 +329,72 @@
 	</div>
 <script>
 
-	$("div[title='phone']:eq(0)").clone().appendTo(".container");
-	$("div[title='laptop']:eq(0)").clone().appendTo(".container");
+	$("[title='phone']:eq(0)").clone().appendTo(".container");
+	$("[title='laptop']:eq(0)").clone().appendTo(".container");
 
-	var laptop = $("div[title='laptop'] .product-image"); 
-	var tablet = $("div[title='tablet'] .product-image");
-	var phone = $("div[title='phone'] .product-image");
+	var laptop = $("[title='laptop'] .product-image"); 
+	var tablet = $("[title='tablet'] .product-image");
+	var phone = $("[title='phone'] .product-image");
 
-	$("div[title='laptop']").hover(function(){
+	$("[title='laptop']").hover(function(){
 	$(this).find(laptop).css("background-color", "red");
 	}, function(){
 		$(this).find(laptop).css("background-color", "");
 	});
 
-	$("div[title='phone']").hover(function(){
+	$("[title='phone']").hover(function(){
 	$(this).find(phone).css("background-color", "blue");
 	}, function(){
 		$(this).find(phone).css("background-color", "");
 	});
 
-	$("div[title='tablet']").hover(function(){
+	$("[title='tablet']").hover(function(){
 	$(this).find(tablet).css("background-color", "green");
 	}, function(){
 		$(this).find(tablet).css("background-color", "");
 	});
+
+
+
+
+
+$("#sorting").on("change", function(){
+
+var change = $("#sorting").val();
+console.log(change);
+var lap = $("[title ='laptop']");
+var tab = $("[title ='tablet']");
+var mobile = $("[title ='phone']");
+
+switch(change) {
+
+case "laptops":
+tab.css("display","none");
+mobile.css("display", "none");
+lap.css("display", "flex");
+break;
+
+case "tablets":
+lap.css("display","none");
+mobile.css("display", "none");
+tab.css("display", "flex");
+break;
+
+case "phones":
+tab.css("display","none");
+lap.css("display", "none");
+mobile.css("display", "flex");
+break;
+
+default: 
+tab.css("display","flex");
+mobile.css("display", "flex");
+lap.css("display", "flex");
+}
+
+});
+
+
 
 </script>
 </body>
