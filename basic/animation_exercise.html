@@ -18,5 +18,13 @@
 
 	<div id="animate">ANIMATE</div>
 
+	<script>
+											// Basic 1 | Animation
+		// After refreshing the page it appears slowly, stays in the same state for five seconds and then slowly disappears.
+		$.fx.speeds["very-slow"]=5000;
+		$("#animate").delay(5000).hide("very-slow");
+		
+	</script>
+
 </body>
 </html>
