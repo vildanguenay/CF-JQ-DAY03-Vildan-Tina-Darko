@@ -6,8 +6,7 @@ $(document).on("mousemove", function(e){
 });
 
 $("#moveme").on("click", function(){
-	$("#moveme").css("margin-top", "20vw").fadeOut(2000).fadeIn(2000);
+	$("#moveme").css("top", "55vw").fadeOut(2000).fadeIn(2000);
 	$(document).off("mousemove");
 })
-
-
+//"margin-top", "20vw"
